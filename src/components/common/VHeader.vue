@@ -8,7 +8,7 @@
       </a>
       <a-menu slot="overlay">
         <a-menu-item key="1">
-          <router-link to="/about">关于</router-link>
+          <router-link to="/main/about">关于</router-link>
         </a-menu-item>
         <a-menu-divider />
         <a-menu-item key="3" @click="logout">退出</a-menu-item>

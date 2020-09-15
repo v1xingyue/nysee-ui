@@ -2,7 +2,7 @@
   <div class="fullPageDiv">
     <a-row>
       <a-col class="loginForm" :span="6" :offset="9">
-        <a-card title="Now You See Me!" :bordered="true" :hoverable="true">
+        <a-card title="Libra Configuration Pro" :bordered="true" :hoverable="true">
           <a-form class="login-form">
             <a-form-item>
               <a-input placeholder="Username" v-model="userName" focus>
@@ -55,10 +55,13 @@ export default {
             let role = res.data.role || "admin";
             auth.setAuth(role, token, loginParams.username);
             this.$router.push({
-              path: "/dashboard"
+              path: "/main"
             });
+          } else {
+            console.log(res);
+            let message = res.data.error || "未知错误...";
+            this.$notification.error({ message: message });
           }
-          console.log(res);
         })
         .catch(err => {
           console.log(err);

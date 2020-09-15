@@ -8,7 +8,7 @@
         v-model="collapsed"
         :trigger="null"
       >
-        <div class="logo">Nysee Dashboard Pro</div>
+        <div class="logo" @click="goHome">Libra Configuration Pro</div>
         <!--menu-->
         <VMenu />
       </a-layout-sider>
@@ -28,11 +28,7 @@
         </a-layout-header>
 
         <a-layout-content style="margin: 0 16px">
-          <a-breadcrumb style="margin: 16px 0">
-            <a-breadcrumb-item>User</a-breadcrumb-item>
-            <a-breadcrumb-item>Bill</a-breadcrumb-item>
-          </a-breadcrumb>
-          <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">Bill is a dog.</div>
+          <router-view :style="{ padding: '12px', background: '#fff', minHeight: '360px' }"></router-view>
         </a-layout-content>
         <Footer />
         <VSetting />
@@ -68,6 +64,11 @@ export default {
     }
   },
   methods: {
+    goHome() {
+      this.$router.push({
+        path: "/main"
+      });
+    },
     makeFullScreen() {
       let element = document.documentElement;
       if (this.fullscreen) {

@@ -2,6 +2,8 @@ const storeageRoleName = "nysee-role"
 const nyseeTokenName = "nysee-token"
 const nyseeUserName = "nysee-user"
 
+//import Cookies from "js-cookie";
+
 // 默认授权通过
 const defaultAuth = false
 
@@ -29,11 +31,12 @@ const isLogin = () => {
 const removeAuth = () => {
     for (let name of [storeageRoleName, nyseeTokenName, nyseeUserName]) {
         localStorage.removeItem(name);
+        //Cookies.remove("NFsChttYpHGsQUeRgMiFNhJsUdwW5p");
     }
+
 }
 
 const setAuth = (role, token, username) => {
-
     localStorage.setItem(storeageRoleName, role)
     localStorage.setItem(nyseeTokenName, token)
     localStorage.setItem(nyseeUserName, username)
