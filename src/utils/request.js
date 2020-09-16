@@ -1,6 +1,7 @@
 import axios from 'axios';
 import router from "../router/nysee"
 import { notification } from 'ant-design-vue';
+import MockFake from './mock.js'
 
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
@@ -69,6 +70,10 @@ if (process.env.NODE_ENV === 'development') {
     axios.defaults.baseURL = "http://localhost:9527/api";
     // 为了接收session 的cookie 该值必须为true
     axios.defaults.withCredentials = true
+
+    if(process.env.VUE_APP_MOCK == "true") {
+        MockFake(axios);
+    }
 } else {
     axios.defaults.baseURL = "/api";
 }
